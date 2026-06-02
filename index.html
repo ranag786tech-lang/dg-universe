@@ -33,7 +33,7 @@
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             max-width: 600px;
         }
 
@@ -49,6 +49,23 @@
             font-size: 1rem;
         }
 
+        /* Filter Clear Controls */
+        .filter-status {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            display: none;
+            cursor: pointer;
+            border: 1px dashed var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .filter-status:hover {
+            background: rgba(88, 166, 255, 0.1);
+        }
+
         .quest-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -62,9 +79,7 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-            text-decoration: none;
-            color: inherit;
+            transition: transform 0.2s ease, border-color 0.2s ease, opacity 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -72,16 +87,28 @@
 
         .project-card:hover {
             transform: translateY(-4px);
-            border-color: var(--accent-color);
+            border-color: var(--border-color);
         }
 
-        .project-title {
-            font-size: 1.2rem;
+        .project-card.highlighted {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(88, 166, 255, 0.15);
+        }
+
+        .project-link {
+            text-decoration: none;
             color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
             margin-bottom: 8px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: space-between;
+            width: 100%;
+        }
+
+        .project-link:hover {
+            color: var(--accent-color);
         }
 
         .project-desc {
@@ -98,12 +125,25 @@
         }
 
         .tag {
-            background-color: rgba(88, 166, 255, 0.1);
+            background-color: rgba(88, 166, 255, 0.08);
             color: var(--accent-color);
-            padding: 4px 8px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
             font-size: 0.75rem;
             font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: #0d1117;
+        }
+
+        .tag.active-tag {
+            background-color: var(--accent-color);
+            color: #0d1117;
         }
 
         footer {
@@ -121,51 +161,53 @@
         <p>Turning complex data ideas into elegant, reliable digital systems.</p>
     </header>
 
-    <main class="quest-container">
+    <div id="filterBadge" class="filter-status" onclick="clearFilter()">Showing selected category. Click to Reset ✕</div>
+
+    <main class="quest-container" id="projectGrid">
         
-        <a href="https://github.com/DigitalDairy786/ZenQuest" class="project-card" target="_blank">
+        <div class="project-card" data-tags="flutter,dart">
             <div>
-                <div class="project-title">ZenQuest <span>↗</span></div>
+                <a href="https://github.com/DigitalDairy786/ZenQuest" class="project-link" target="_blank">ZenQuest <span>↗</span></a>
                 <p class="project-desc">A wellness and yoga application built for seamless tracking and optimal UI performance.</p>
             </div>
             <div class="tag-container">
-                <span class="tag">Flutter</span>
-                <span class="tag">Dart</span>
+                <span class="tag" onclick="filterCategory('flutter')">Flutter</span>
+                <span class="tag" onclick="filterCategory('dart')">Dart</span>
             </div>
-        </a>
+        </div>
 
-        <a href="https://github.com/DigitalDairy786/Obsidian-Soul-Editor" class="project-card" target="_blank">
+        <div class="project-card" data-tags="git,productivity">
             <div>
-                <div class="project-title">Obsidian Soul Editor <span>↗</span></div>
+                <a href="https://github.com/DigitalDairy786/Obsidian-Soul-Editor" class="project-link" target="_blank">Obsidian Soul Editor <span>↗</span></a>
                 <p class="project-desc">A refined system utility for cross-branch configuration management and workspace editing.</p>
             </div>
             <div class="tag-container">
-                <span class="tag">Git</span>
-                <span class="tag">Productivity</span>
+                <span class="tag" onclick="filterCategory('git')">Git</span>
+                <span class="tag" onclick="filterCategory('productivity')">Productivity</span>
             </div>
-        </a>
+        </div>
 
-        <a href="https://github.com/DigitalDairy786/The-Light" class="project-card" target="_blank">
+        <div class="project-card" data-tags="html/css,javascript">
             <div>
-                <div class="project-title">The Light <span>↗</span></div>
+                <a href="https://github.com/DigitalDairy786/The-Light" class="project-link" target="_blank">The Light <span>↗</span></a>
                 <p class="project-desc">Visual-heavy web space featuring interactive typography effects and custom recitation assets.</p>
             </div>
             <div class="tag-container">
-                <span class="tag">HTML/CSS</span>
-                <span class="tag">JavaScript</span>
+                <span class="tag" onclick="filterCategory('html/css')">HTML/CSS</span>
+                <span class="tag" onclick="filterCategory('javascript')">JavaScript</span>
             </div>
-        </a>
+        </div>
 
-        <a href="https://github.com/DigitalDairy786/Quantum-Dairy-Core" class="project-card" target="_blank">
+        <div class="project-card" data-tags="python,core-backend">
             <div>
-                <div class="project-title">Quantum Dairy Core <span>↗</span></div>
+                <a href="https://github.com/DigitalDairy786/Quantum-Dairy-Core" class="project-link" target="_blank">Quantum Dairy Core <span>↗</span></a>
                 <p class="project-desc">The structural spine for managing unified data sets, repositories, and local system automation.</p>
             </div>
             <div class="tag-container">
-                <span class="tag">Python</span>
-                <span class="tag">Core Backend</span>
+                <span class="tag" onclick="filterCategory('python')">Python</span>
+                <span class="tag" onclick="filterCategory('core-backend')">Core Backend</span>
             </div>
-        </a>
+        </div>
 
     </main>
 
@@ -173,5 +215,52 @@
         &copy; 2026 DG Universe. Built for performance and absolute clarity.
     </footer>
 
+    <script>
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const badge = document.getElementById('filterBadge');
+            const allTags = document.querySelectorAll('.tag');
+
+            // Set active tag highlight
+            allTags.forEach(t => {
+                if(t.textContent.toLowerCase() === category.toLowerCase()) {
+                    t.classList.add('active-tag');
+                } else {
+                    t.classList.remove('active-tag');
+                }
+            });
+
+            cards.forEach(card => {
+                const tags = card.getAttribute('data-tags').split(',');
+                if (tags.includes(category.toLowerCase())) {
+                    card.style.display = 'flex';
+                    card.classList.add('highlighted');
+                    card.style.opacity = '1';
+                } else {
+                    card.style.opacity = '0.2';
+                    card.classList.remove('highlighted');
+                }
+            });
+
+            badge.style.display = 'inline-block';
+            badge.textContent = `Filtered by: ${category.toUpperCase()} (Click to Reset ✕)`;
+        }
+
+        function clearFilter() {
+            const cards = document.querySelectorAll('.project-card');
+            const badge = document.getElementById('filterBadge');
+            const allTags = document.querySelectorAll('.tag');
+
+            allTags.forEach(t => t.classList.remove('active-tag'));
+
+            cards.forEach(card => {
+                card.style.display = 'flex';
+                card.style.opacity = '1';
+                card.classList.remove('highlighted');
+            });
+
+            badge.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
