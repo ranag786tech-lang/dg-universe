@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DG Universe // Nexus Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .quest-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .tag-container {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(88, 166, 255, 0.1);
+            color: var(--accent-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DG Universe</h1>
+        <p>Turning complex data ideas into elegant, reliable digital systems.</p>
+    </header>
+
+    <main class="quest-container">
+        
+        <a href="https://github.com/DigitalDairy786/ZenQuest" class="project-card" target="_blank">
+            <div>
+                <div class="project-title">ZenQuest <span>↗</span></div>
+                <p class="project-desc">A wellness and yoga application built for seamless tracking and optimal UI performance.</p>
+            </div>
+            <div class="tag-container">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/DigitalDairy786/Obsidian-Soul-Editor" class="project-card" target="_blank">
+            <div>
+                <div class="project-title">Obsidian Soul Editor <span>↗</span></div>
+                <p class="project-desc">A refined system utility for cross-branch configuration management and workspace editing.</p>
+            </div>
+            <div class="tag-container">
+                <span class="tag">Git</span>
+                <span class="tag">Productivity</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/DigitalDairy786/The-Light" class="project-card" target="_blank">
+            <div>
+                <div class="project-title">The Light <span>↗</span></div>
+                <p class="project-desc">Visual-heavy web space featuring interactive typography effects and custom recitation assets.</p>
+            </div>
+            <div class="tag-container">
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
+        </a>
+
+        <a href="https://github.com/DigitalDairy786/Quantum-Dairy-Core" class="project-card" target="_blank">
+            <div>
+                <div class="project-title">Quantum Dairy Core <span>↗</span></div>
+                <p class="project-desc">The structural spine for managing unified data sets, repositories, and local system automation.</p>
+            </div>
+            <div class="tag-container">
+                <span class="tag">Python</span>
+                <span class="tag">Core Backend</span>
+            </div>
+        </a>
+
+    </main>
+
+    <footer>
+        &copy; 2026 DG Universe. Built for performance and absolute clarity.
+    </footer>
+
+</body>
+</html>
