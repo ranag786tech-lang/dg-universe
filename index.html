@@ -49,7 +49,6 @@
             font-size: 1rem;
         }
 
-        /* Filter Clear Controls */
         .filter-status {
             margin-bottom: 20px;
             font-size: 0.9rem;
@@ -87,7 +86,6 @@
 
         .project-card:hover {
             transform: translateY(-4px);
-            border-color: var(--border-color);
         }
 
         .project-card.highlighted {
@@ -136,12 +134,7 @@
             transition: all 0.2s ease;
         }
 
-        .tag:hover {
-            background-color: var(--accent-color);
-            color: #0d1117;
-        }
-
-        .tag.active-tag {
+        .tag:hover, .tag.active-tag {
             background-color: var(--accent-color);
             color: #0d1117;
         }
@@ -167,7 +160,7 @@
         
         <div class="project-card" data-tags="flutter,dart">
             <div>
-                <a href="https://github.com/DigitalDairy786/ZenQuest" class="project-link" target="_blank">ZenQuest <span>↗</span></a>
+                <a href="https://github.com/ranag786tech-lang/ZenQuest" class="project-link" target="_blank">ZenQuest <span>↗</span></a>
                 <p class="project-desc">A wellness and yoga application built for seamless tracking and optimal UI performance.</p>
             </div>
             <div class="tag-container">
@@ -178,7 +171,7 @@
 
         <div class="project-card" data-tags="git,productivity">
             <div>
-                <a href="https://github.com/DigitalDairy786/Obsidian-Soul-Editor" class="project-link" target="_blank">Obsidian Soul Editor <span>↗</span></a>
+                <a href="https://github.com/ranag786tech-lang/Obsidian-Soul-Editor" class="project-link" target="_blank">Obsidian Soul Editor <span>↗</span></a>
                 <p class="project-desc">A refined system utility for cross-branch configuration management and workspace editing.</p>
             </div>
             <div class="tag-container">
@@ -189,7 +182,7 @@
 
         <div class="project-card" data-tags="html/css,javascript">
             <div>
-                <a href="https://github.com/DigitalDairy786/The-Light" class="project-link" target="_blank">The Light <span>↗</span></a>
+                <a href="https://github.com/ranag786tech-lang/The-Light" class="project-link" target="_blank">The Light <span>↗</span></a>
                 <p class="project-desc">Visual-heavy web space featuring interactive typography effects and custom recitation assets.</p>
             </div>
             <div class="tag-container">
@@ -200,7 +193,7 @@
 
         <div class="project-card" data-tags="python,core-backend">
             <div>
-                <a href="https://github.com/DigitalDairy786/Quantum-Dairy-Core" class="project-link" target="_blank">Quantum Dairy Core <span>↗</span></a>
+                <a href="https://github.com/ranag786tech-lang/Quantum-Dairy-Core" class="project-link" target="_blank">Quantum Dairy Core <span>↗</span></a>
                 <p class="project-desc">The structural spine for managing unified data sets, repositories, and local system automation.</p>
             </div>
             <div class="tag-container">
@@ -221,7 +214,6 @@
             const badge = document.getElementById('filterBadge');
             const allTags = document.querySelectorAll('.tag');
 
-            // Set active tag highlight
             allTags.forEach(t => {
                 if(t.textContent.toLowerCase() === category.toLowerCase()) {
                     t.classList.add('active-tag');
